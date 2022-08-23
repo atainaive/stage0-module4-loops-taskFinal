@@ -6,17 +6,23 @@ public class Pyramid {
     }
 
     public void printPyramid(int cathetusLength) {
-        for (int i = 1; i <= cathetusLength; i++) {
-            for (int j = 1; j <= (cathetusLength - i) * 2; j++) {
-                System.out.print(" ");
+        for (int i = 0; i < cathetusLength; i++) {
+            for (int j = cathetusLength; j > 0; j--) {
+                if (cathetusLength - j < cathetusLength - i - 1) {
+                    System.out.print(" ");
+                    continue;
+                }
+                System.out.print(j);
             }
-            for (int k = i; k >= 1; k--) {
-                System.out.print(" " + k);
+
+            for (int j = 2; j <= cathetusLength; j++) {
+                if (j > i + 1) {
+                    break;
+                }
+                System.out.print(j);
             }
-            for (int l = 2; l <= i; l++) {
-                System.out.print(" " + l);
-            }
-            System.out.println();
+
+            System.out.print("\n");
         }
     }
 }
